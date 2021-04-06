@@ -26,7 +26,14 @@ app.post('/application',(req,res) => {
         console.log(result);
      })
 })
-
+app.get('/get/application',(req,res) => {
+    const sqlSelect = "SELECT * FROM `application` WHERE 1"
+    db.query(sqlSelect, (err,result) => {
+       res.send(result)
+       return result
+    })
+   
+})
 app.get('/news',(req,res) => {
     const sqlSelect = "SELECT * FROM `news` WHERE 1"
     db.query(sqlSelect, (err,result) => {
